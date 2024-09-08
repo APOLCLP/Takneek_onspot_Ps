@@ -127,6 +127,9 @@ void main(){
 
         float y5 = 0.6;  // Start of the third river's range
         float y6 = 0.9;
+
+        float y7=0.115;
+        float y8=0.9;
         // First river calculations
         float path1 = riverPath1(coord);
         float width1 = riverWidth1(coord, path1);
@@ -149,7 +152,9 @@ void main(){
         color = mix(vec3(0.1, 0.3, 0.5), color, width1);  // First river: blueish color
         
         // Apply second river color
-        color = mix(vec3(1.0, 1.0, 1.0), color, width2);  // Second river: greenish color
+        if (coord.y > y7 && coord.y < y8) {
+            color = mix(vec3(1.0, 1.0, 1.0), color, width2);  // Third river: reddish color
+        }  // Second river: greenish color
         
         // Third river color within the y1 and y2 range
         if (coord.y > y1 && coord.y < y2) {
